@@ -6,8 +6,6 @@ import dbConnect from "@/lib/mongodb";
 import User from "@/models/User";
 
 const ADMIN_EMAILS = [
-  'bonejohao60@gmail.com',
-  'andyz1238@gmail.com',
   process.env.ADMIN_EMAIL || '',
 ].filter(Boolean);
 

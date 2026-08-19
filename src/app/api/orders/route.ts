@@ -45,6 +45,23 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Faltan datos de la orden o pago" }, { status: 400 });
     }
 
+    // Step 6: Validate file upload (Base64) size and type
+    if (receiptBase64) {
+      // ~2MB max size for base64 string (aprox 2.6 million characters)
+      if (receiptBase64.length > 2600000) {
+        return NextResponse.json({ success: false, error: "El comprobante es demasiado grande (Máximo 2MB)" }, { status: 413 });
+      }
+      if (!receiptBase64.startsWith('data:image/')) {
+        return NextResponse.json({ success: false, error: "Solo se permiten imágenes para el comprobante" }, { status: 415 });
+      }
+    }
+
+    // Step 4: Basic NoSQL injection prevention / Sanitization
+    const sanitizedItems = items.map((item: any) => ({
+      id: String(item.id).replace(/[^a-zA-Z0-9_-]/g, ''),
+      quantity: Math.max(1, parseInt(item.quantity) || 1)
+    }));
+
     // Verify payment based on gateway
     if (paymentGateway === 'paypal') {
       if (!paymentId) return NextResponse.json({ success: false, error: "Falta paymentId" }, { status: 400 });
@@ -94,7 +111,7 @@ export async function POST(request: Request) {
     const createdOrders = [];
 
     // Process each item in the cart
-    for (const item of items) {
+    for (const item of sanitizedItems) {
       const product = await Product.findOne({ id: item.id });
       
       if (!product) continue;

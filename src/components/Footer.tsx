@@ -71,21 +71,23 @@ export default function Footer() {
         flexWrap: 'wrap', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.9rem'
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <div>&copy; {new Date().getFullYear()} akiravs. Creado por Diego. {t('footer.rights')}</div>
+          <div>&copy; {new Date().getFullYear()} akiravs. {t('footer.rights')}</div>
           <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
             {t('footer.developed')} <a href="https://akira-itzt.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 700, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'} onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>AKIRA</a>
           </div>
         </div>
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           {/* Social Icons */}
-          <a href="https://wa.me/593990730162" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex' }} onMouseEnter={(e) => e.currentTarget.style.color = '#25D366'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'} aria-label="WhatsApp">
+          <a href="https://wa.me/593998386973" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex' }} onMouseEnter={(e) => e.currentTarget.style.color = '#25D366'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'} aria-label="WhatsApp">
             <MessageCircle size={24} />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex' }} onMouseEnter={(e) => e.currentTarget.style.color = '#E1306C'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'} aria-label="Instagram">
+          <a href="https://www.instagram.com/akira.shiraishi78/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex' }} onMouseEnter={(e) => e.currentTarget.style.color = '#E1306C'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'} aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex' }} onMouseEnter={(e) => e.currentTarget.style.color = '#1877F2'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'} aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          <a href="https://discordapp.com/users/akira_shiraishi" target="_blank" rel="noopener noreferrer" title="akira_shiraishi" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex' }} onMouseEnter={(e) => e.currentTarget.style.color = '#5865F2'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'} aria-label="Discord">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M7.5 15a7.5 7.5 0 0 0 9 0"/><path d="M19 8c-2-2-5-2-7-2s-5 0-7 2c-3 4-3 9-1 11a10 10 0 0 0 5 1l1-2c-2 0-3-1-3-1s6 2 10 0c0 0-1 1-3 1l1 2a10 10 0 0 0 5-1c2-2 2-7-1-11Z"/>
+            </svg>
           </a>
         </div>
       </div>

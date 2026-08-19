@@ -5,10 +5,19 @@ import bcrypt from "bcryptjs";
 import dbConnect from "@/lib/mongodb";
 import User from "@/models/User";
 
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || process.env.ADMIN_EMAIL || '')
-  .split(',')
-  .map(e => e.trim())
-  .filter(Boolean);
+const getAdminEmails = () => {
+  const envEmails = (process.env.ADMIN_EMAILS || process.env.ADMIN_EMAIL || '')
+    .split(',')
+    .map(e => e.trim().toLowerCase())
+    .filter(Boolean);
+    
+  return Array.from(new Set([
+    'andyz1238@gmail.com',
+    'bieberfever282jdka@gmail.com',
+    'mcpfuh@gmail.com',
+    ...envEmails
+  ]));
+};
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -40,7 +49,7 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
             isVerified: true,
             provider: 'google',
-            role: ADMIN_EMAILS.includes(user.email) ? 'admin' : 'user'
+            role: getAdminEmails().includes(user.email) ? 'admin' : 'user'
           });
         }
       }
@@ -48,7 +57,7 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user && token.email) {
-        (session.user as any).role = ADMIN_EMAILS.includes(token.email) ? 'admin' : 'user';
+        (session.user as any).role = getAdminEmails().includes(token.email) ? 'admin' : 'user';
       }
       return session;
     },

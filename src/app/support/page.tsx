@@ -20,10 +20,10 @@ export default function SupportPage() {
       </div>
 
       {/* Cards de Contacto */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', width: '100%', maxWidth: '1000px', marginBottom: '4rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem', width: '100%', maxWidth: '1000px', marginBottom: '4rem' }}>
         
-        {/* WhatsApp */}
-        <a href="https://wa.me/593990730162" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        {/* WhatsApp Andy */}
+        <a href="https://wa.me/593998386973" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
           <div style={{ 
             backgroundColor: 'var(--card-bg)', borderRadius: '24px', padding: '2rem', 
             boxShadow: '0 10px 40px rgba(0,0,0,0.05)', textAlign: 'center',
@@ -35,21 +35,21 @@ export default function SupportPage() {
             <div style={{ width: '60px', height: '60px', backgroundColor: '#25D366', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
               <MessageCircle size={32} />
             </div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{t('support.whatsapp.title')}</h2>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>WhatsApp (Andy)</h2>
             <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-              {t('support.whatsapp.desc')}
+              Escríbeme para dudas generales o problemas con tu cuenta.
             </p>
             <button style={{ 
               backgroundColor: '#25D366', color: 'white', border: 'none', padding: '0.8rem 1.5rem', 
               borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
             }}>
-              {t('support.whatsapp.btn')}
+              +593 99 838 6973
             </button>
           </div>
         </a>
 
-        {/* Correo Electrónico */}
-        <a href="mailto:bonejohao60@gmail.com" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        {/* Correo Andy */}
+        <a href="mailto:andyz1238@gmail.com" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
           <div style={{ 
             backgroundColor: 'var(--card-bg)', borderRadius: '24px', padding: '2rem', 
             boxShadow: '0 10px 40px rgba(0,0,0,0.05)', textAlign: 'center',
@@ -61,15 +61,67 @@ export default function SupportPage() {
             <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
               <Mail size={32} />
             </div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{t('support.email.title')}</h2>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Correo (Andy)</h2>
             <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-              {t('support.email.desc')}
+              Para facturación, reportes o consultas de negocios.
+            </p>
+            <button style={{ 
+              backgroundColor: 'var(--primary)', color: '#1C5F5C', border: 'none', padding: '0.8rem 1.5rem', 
+              borderRadius: '12px', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', width: '100%', wordBreak: 'break-all'
+            }}>
+              andyz1238@gmail.com
+            </button>
+          </div>
+        </a>
+
+        {/* WhatsApp Colega */}
+        <a href="https://wa.me/573183453036" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+          <div style={{ 
+            backgroundColor: 'var(--card-bg)', borderRadius: '24px', padding: '2rem', 
+            boxShadow: '0 10px 40px rgba(0,0,0,0.05)', textAlign: 'center',
+            transition: 'transform 0.3s ease', cursor: 'pointer', height: '100%'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={{ width: '60px', height: '60px', backgroundColor: '#25D366', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
+              <MessageCircle size={32} />
+            </div>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>WhatsApp (Soporte)</h2>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+              Contacto alternativo para soporte rápido.
+            </p>
+            <button style={{ 
+              backgroundColor: '#25D366', color: 'white', border: 'none', padding: '0.8rem 1.5rem', 
+              borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
+            }}>
+              +57 318 345 3036
+            </button>
+          </div>
+        </a>
+
+        {/* Correo Colega */}
+        <a href="mailto:y@uam.lol" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+          <div style={{ 
+            backgroundColor: 'var(--card-bg)', borderRadius: '24px', padding: '2rem', 
+            boxShadow: '0 10px 40px rgba(0,0,0,0.05)', textAlign: 'center',
+            transition: 'transform 0.3s ease', cursor: 'pointer', height: '100%'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
+              <Mail size={32} />
+            </div>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Correo (Soporte)</h2>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+              Escríbenos si tienes problemas de acceso.
             </p>
             <button style={{ 
               backgroundColor: 'var(--primary)', color: '#1C5F5C', border: 'none', padding: '0.8rem 1.5rem', 
               borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
             }}>
-              {t('support.email.btn')}
+              y@uam.lol
             </button>
           </div>
         </a>

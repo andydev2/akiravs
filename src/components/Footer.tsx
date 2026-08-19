@@ -9,9 +9,9 @@ export default function Footer() {
 
   return (
     <footer style={{
-      backgroundColor: 'var(--card-bg)',
+      backgroundColor: 'var(--background)',
       color: 'var(--text-main)',
-      padding: '4rem 5% 2rem 5%',
+      padding: '5rem 5% 2rem 5%',
       marginTop: 'auto',
       borderTop: '1px solid var(--border)'
     }}>
@@ -26,9 +26,9 @@ export default function Footer() {
         {/* Brand Col */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <img src="/logo.svg" alt="Logo" style={{ height: '40px', width: 'auto' }} width={40} height={40} />
+            <img src="/logo.jpg" alt="akiravs Logo" style={{ height: '40px', width: 'auto', borderRadius: '8px' }} width={40} height={40} />
             <div style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.5px' }}>
-              DV
+              akiravs
             </div>
           </Link>
           <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, fontSize: '0.95rem' }}>
@@ -38,28 +38,27 @@ export default function Footer() {
 
         {/* Links Col */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h4 style={{ color: 'var(--text-main)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.5rem' }}>{t('footer.links')}</h4>
-          <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>{t('nav.catalog')}</Link>
-          <Link href="/support" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>{t('nav.support')}</Link>
+          <h4 style={{ color: 'var(--text-main)', fontWeight: 800, fontSize: '1.2rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>{t('footer.links')}</h4>
+          <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontWeight: 500 }} onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.transform = 'translateX(4px)'; }} onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.transform = 'translateX(0)'; }}>{t('nav.catalog')}</Link>
+          <Link href="/support" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontWeight: 500 }} onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.transform = 'translateX(4px)'; }} onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.transform = 'translateX(0)'; }}>{t('nav.support')}</Link>
         </div>
 
         {/* Legal Col */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h4 style={{ color: 'var(--text-main)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.5rem' }}>{t('footer.legal')}</h4>
-          <Link href="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>{t('footer.terms')}</Link>
-          <Link href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>{t('footer.privacy')}</Link>
+          <h4 style={{ color: 'var(--text-main)', fontWeight: 800, fontSize: '1.2rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>{t('footer.legal')}</h4>
+          <Link href="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontWeight: 500 }} onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.transform = 'translateX(4px)'; }} onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.transform = 'translateX(0)'; }}>{t('footer.terms')}</Link>
+          <Link href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontWeight: 500 }} onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.transform = 'translateX(4px)'; }} onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.transform = 'translateX(0)'; }}>{t('footer.privacy')}</Link>
         </div>
 
         {/* Payment Methods */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h4 style={{ color: 'var(--text-main)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.5rem' }}>{t('footer.payment_methods')}</h4>
+          <h4 style={{ color: 'var(--text-main)', fontWeight: 800, fontSize: '1.2rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>{t('footer.payment_methods')}</h4>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <div style={{ background: 'var(--background)', padding: '0.5rem', borderRadius: '8px' }}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style={{ height: '20px' }} width={80} height={20} />
+            <div style={{ background: 'var(--search-bg)', padding: '0.8rem', borderRadius: '12px', display: 'flex', alignItems: 'center' }}>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style={{ height: '18px' }} width={70} height={18} />
             </div>
-            <div style={{ background: 'var(--background)', padding: '0.5rem 0.8rem', borderRadius: '8px', display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#fbc02d' }}>Pichincha</span>
-              <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#e91e63' }}>Guayaquil</span>
+            <div style={{ background: 'var(--search-bg)', padding: '0.8rem 1rem', borderRadius: '12px', display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#F3BA2F' }}>Binance Pay</span>
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@ export default function Footer() {
         flexWrap: 'wrap', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.9rem'
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <div>&copy; {new Date().getFullYear()} Diego Ventas. {t('footer.rights')}</div>
+          <div>&copy; {new Date().getFullYear()} akiravs. Creado por Diego. {t('footer.rights')}</div>
           <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
             {t('footer.developed')} <a href="https://akira-itzt.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 700, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'} onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>AKIRA</a>
           </div>

@@ -21,13 +21,12 @@ export default function CheckoutModal({ isOpen, onClose, cartTotal, onConfirmPay
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
   // Transfer state
-  const [transferCountry, setTransferCountry] = useState('Ecuador - Pichincha');
+  const [transferCountry, setTransferCountry] = useState('Binance Pay');
   const [receiptBase64, setReceiptBase64] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const bankDetails: Record<string, any> = {
-    'Ecuador - Pichincha': { Banco: 'Banco Pichincha', Titular: 'Johao Loor', Cédula: '1251051197', 'Tipo de Cuenta': 'Ahorro transaccional', Número: '2211758587' },
-    'Ecuador - Guayaquil': { Banco: 'Banco Guayaquil', Titular: 'Loor Bone Diego Johao', CI: '1251051197', Correo: 'bonejohao60@gmail.com', Ahorro: '0057353958' },
+    'Binance Pay': { Plataforma: 'Binance Pay', 'Pay ID': 'Solicitar en Soporte', Correo: 'bonejohao60@gmail.com' }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -167,15 +166,15 @@ export default function CheckoutModal({ isOpen, onClose, cartTotal, onConfirmPay
                     onClick={() => setPaymentMethod('transfer')}
                     style={{ 
                       flex: 1, padding: '1rem', borderRadius: '12px', 
-                      border: `2px solid ${paymentMethod === 'transfer' ? '#10b981' : 'var(--border)'}`, 
-                      background: paymentMethod === 'transfer' ? 'rgba(16, 185, 129, 0.05)' : 'var(--search-bg)',
-                      color: paymentMethod === 'transfer' ? '#10b981' : 'var(--text-muted)',
+                      border: `2px solid ${paymentMethod === 'transfer' ? '#F3BA2F' : 'var(--border)'}`, 
+                      background: paymentMethod === 'transfer' ? 'rgba(243, 186, 47, 0.05)' : 'var(--search-bg)',
+                      color: paymentMethod === 'transfer' ? '#F3BA2F' : 'var(--text-muted)',
                       display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: 600,
                       transition: 'all 0.2s ease'
                     }}
                   >
                     <Landmark size={24} />
-                    Transferencia Bancaria
+                    Binance Pay
                   </button>
                   <button 
                     type="button"
@@ -197,7 +196,7 @@ export default function CheckoutModal({ isOpen, onClose, cartTotal, onConfirmPay
 
               {paymentMethod === 'transfer' && (
                 <div style={{ marginTop: '0.5rem', animation: 'fadeIn 0.3s ease' }}>
-                  <label htmlFor="country-select" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}>Selecciona tu País</label>
+                  <label htmlFor="country-select" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}>Selecciona tu Método</label>
                   <select 
                     id="country-select"
                     value={transferCountry}

@@ -15,8 +15,8 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Diego Ventas | Servicios Digitales Premium",
-  description: "Compra cuentas de IA, Streaming y Juegos al mejor precio. Entrega inmediata y garantía total en Diego Ventas.",
+  title: "akiravs | Servicios Digitales Premium",
+  description: "Compra cuentas de IA, Streaming y Juegos al mejor precio. Entrega inmediata y garantía total en akiravs.",
 };
 
 export default async function RootLayout({

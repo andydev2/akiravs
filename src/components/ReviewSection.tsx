@@ -75,11 +75,13 @@ export default function ReviewSection() {
         <button 
           onClick={() => setIsFormOpen(true)}
           style={{ 
-            background: 'var(--primary)', color: '#1C5F5C', border: 'none', 
-            padding: '0.8rem 1.5rem', borderRadius: '24px', fontWeight: 700, 
+            background: 'var(--primary)', color: 'var(--background)', border: 'none', 
+            padding: '0.8rem 1.5rem', borderRadius: '100px', fontWeight: 700, 
             cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem',
-            boxShadow: '0 4px 15px rgba(62, 213, 204, 0.3)'
+            boxShadow: '0 4px 15px rgba(0,0,0,0.1)', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; e.currentTarget.style.background = 'var(--primary-hover)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; e.currentTarget.style.background = 'var(--primary)'; }}
         >
           <MessageSquare size={18} /> {t('review.leave')}
         </button>
@@ -131,9 +133,13 @@ export default function ReviewSection() {
             />
 
             <button type="submit" style={{ 
-              width: '100%', background: 'var(--primary)', color: '#1C5F5C', border: 'none', 
-              padding: '1rem', borderRadius: '12px', fontWeight: 700, cursor: 'pointer', fontSize: '1.1rem' 
-            }}>
+              width: '100%', background: 'var(--primary)', color: 'var(--background)', border: 'none', 
+              padding: '1.2rem', borderRadius: '100px', fontWeight: 700, cursor: 'pointer', fontSize: '1.1rem',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; e.currentTarget.style.background = 'var(--primary-hover)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.background = 'var(--primary)'; }}
+            >
               {t('review.submit')}
             </button>
           </form>
@@ -162,11 +168,13 @@ export default function ReviewSection() {
                   flexShrink: 0,
                 }}>
                   <div style={{ 
-                    background: 'var(--card-bg)', 
+                    background: 'var(--card-glass)', 
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
                     padding: '2rem', 
                     borderRadius: '24px', 
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.04)', 
-                    border: '1px solid #f8fafc',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.2)', 
+                    border: '1px solid var(--border-glass)',
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column'

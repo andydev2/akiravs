@@ -113,23 +113,23 @@ export default function Home() {
           
           .bento-card {
             background: var(--card-glass);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
             border-radius: 32px;
             padding: 2.5rem;
             border: 1px solid var(--border-glass);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 40px rgba(28, 95, 92, 0.08), inset 0 0 0 1px rgba(255,255,255,0.5);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.4);
             display: flex;
             flex-direction: column;
           }
           
           .bento-card:hover {
-            transform: scale(0.98) translateY(-5px);
-            box-shadow: 0 25px 50px rgba(28, 95, 92, 0.15);
-            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0,0,0,0.1);
           }
 
           /* Grid cell placements */
@@ -160,20 +160,20 @@ export default function Home() {
             grid-column: span 1; 
             grid-row: span 2; 
             background: var(--primary); 
-            color: #1C5F5C; 
+            color: var(--background); 
             justify-content: space-between;
           }
           .cta-wide { 
             grid-column: span 3; 
             grid-row: span 1; 
             background: var(--primary); 
-            color: #1C5F5C; 
+            color: var(--background); 
             flex-direction: row; 
             align-items: center; 
             justify-content: space-between;
             cursor: pointer;
           }
-          .cta-wide:hover { background: var(--primary-hover); }
+          .cta-wide:hover { background: var(--primary-hover); transform: scale(0.99) }
 
           /* Typography */
           .hero-title {
@@ -193,11 +193,11 @@ export default function Home() {
           
           .icon-wrap {
             width: 64px; height: 64px;
-            background: var(--primary);
+            background: var(--background);
             border-radius: 20px;
             display: flex; align-items: center; justify-content: center;
-            color: #1C5F5C; flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(62, 213, 204, 0.4);
+            color: var(--primary); flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
           }
           
           /* Layout Ordering */
@@ -239,7 +239,7 @@ export default function Home() {
               
               {/* 1. Hero Cell (Huge Square) */}
               <div className="bento-card hero-cell">
-                <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '300px', height: '300px', background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)', opacity: 0.2, filter: 'blur(40px)', zIndex: 0 }}></div>
+                <div style={{ position: 'absolute', top: '-20%', right: '-20%', width: '400px', height: '400px', background: 'radial-gradient(circle, var(--accent) 0%, transparent 60%)', opacity: 0.15, filter: 'blur(60px)', zIndex: 0 }}></div>
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <h1 className="hero-title">{t('hero.title')}</h1>
                   <p className="hero-desc">{t('hero.desc')}</p>
@@ -259,7 +259,7 @@ export default function Home() {
 
               {/* 3. Feature 2 (Small Square) */}
               <div className="bento-card f2-square">
-                <div className="icon-wrap" style={{ background: 'var(--card-bg)', color: 'var(--primary)', boxShadow: 'none' }}>
+                <div className="icon-wrap" style={{ background: 'var(--search-bg)', color: 'var(--text-main)', boxShadow: 'none' }}>
                   <Zap size={28} />
                 </div>
                 <div>
@@ -270,7 +270,7 @@ export default function Home() {
 
               {/* 4. Feature 3 (Small Square) */}
               <div className="bento-card f3-square">
-                <div className="icon-wrap" style={{ background: 'var(--card-bg)', color: 'var(--primary)', boxShadow: 'none' }}>
+                <div className="icon-wrap" style={{ background: 'var(--search-bg)', color: 'var(--text-main)', boxShadow: 'none' }}>
                   <ShieldCheck size={28} />
                 </div>
                 <div>
@@ -282,7 +282,7 @@ export default function Home() {
               {/* 5. About Me (Wide Middle) */}
               <div className="bento-card about-wide" id="sobre-mi">
                 <div style={{ flex: 1 }}>
-                  <div style={{ display: 'inline-block', padding: '0.4rem 1rem', background: 'var(--text-main)', color: 'var(--background)', borderRadius: '100px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.75rem', marginBottom: '1rem' }}>
+                  <div style={{ display: 'inline-block', padding: '0.5rem 1.2rem', background: 'var(--primary)', color: 'var(--background)', borderRadius: '100px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.75rem', marginBottom: '1.5rem' }}>
                     {t('about.subtitle')}
                   </div>
                   <h2 style={{ fontSize: 'clamp(2rem, 3vw, 2.5rem)', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.1 }}>{t('about.title')}</h2>
@@ -299,12 +299,12 @@ export default function Home() {
 
               {/* 6. Feature 4 (Tall Right) */}
               <div className="bento-card f4-tall">
-                <div className="icon-wrap" style={{ background: 'var(--border-glass)', color: '#1C5F5C', boxShadow: 'none', width: '80px', height: '80px' }}>
+                <div className="icon-wrap" style={{ background: 'var(--border-glass)', color: 'var(--background)', boxShadow: 'none', width: '80px', height: '80px' }}>
                   <HeadphonesIcon size={40} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#1C5F5C', marginBottom: '0.8rem', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{t('why.support.title')}</h3>
-                  <p style={{ color: 'rgba(28, 95, 92, 0.8)', fontSize: '1.05rem', lineHeight: 1.5, fontWeight: 600 }}>{t('why.support.desc')}</p>
+                  <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--background)', marginBottom: '0.8rem', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{t('why.support.title')}</h3>
+                  <p style={{ color: 'var(--background)', opacity: 0.8, fontSize: '1.05rem', lineHeight: 1.5, fontWeight: 500 }}>{t('why.support.desc')}</p>
                 </div>
               </div>
 
@@ -326,7 +326,7 @@ export default function Home() {
                     Explora nuestros productos y ahorra hoy mismo.
                   </p>
                 </div>
-                <div style={{ width: '64px', height: '64px', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '64px', height: '64px', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)' }}>
                   <ArrowRight size={32} color="var(--background)" />
                 </div>
               </div>
@@ -350,23 +350,34 @@ export default function Home() {
                       key={cat.id} 
                       onClick={() => setActiveCategory(cat.id)}
                       style={{
-                        background: isActive ? 'var(--text-main)' : 'var(--card-glass)',
-                        backdropFilter: 'blur(10px)',
-                        color: isActive ? 'var(--background)' : 'var(--text-main)',
+                        background: isActive ? 'var(--primary)' : 'var(--search-bg)',
+                        color: isActive ? 'var(--background)' : 'var(--text-muted)',
                         border: '1px solid',
-                        borderColor: isActive ? 'var(--text-main)' : 'var(--border-glass)',
-                        padding: '0.75rem 1.5rem',
+                        borderColor: isActive ? 'var(--primary)' : 'transparent',
+                        padding: '0.8rem 1.75rem',
                         borderRadius: '100px',
-                        fontWeight: 800,
+                        fontWeight: 700,
                         fontSize: '0.95rem',
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.5rem',
-                        transition: 'all 0.2s',
+                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                         whiteSpace: 'nowrap',
                         flexShrink: 0,
-                        boxShadow: isActive ? '0 8px 20px rgba(0,0,0,0.1)' : '0 4px 10px rgba(0,0,0,0.05)'
+                        boxShadow: isActive ? '0 8px 20px rgba(0,0,0,0.1)' : 'inset 0 2px 4px rgba(0,0,0,0.02)'
+                      }}
+                      onMouseEnter={(e) => {
+                        if(!isActive) {
+                          e.currentTarget.style.background = 'var(--card-bg)';
+                          e.currentTarget.style.borderColor = 'var(--border)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if(!isActive) {
+                          e.currentTarget.style.background = 'var(--search-bg)';
+                          e.currentTarget.style.borderColor = 'transparent';
+                        }
                       }}
                     >
                       {cat.icon}
@@ -406,24 +417,25 @@ export default function Home() {
                     padding: '1.2rem 3.5rem', 
                     borderRadius: '100px', 
                     fontSize: '1.1rem',
-                    fontWeight: 800,
-                    background: 'var(--card-glass)',
-                    backdropFilter: 'blur(10px)',
+                    fontWeight: 700,
+                    background: 'var(--search-bg)',
                     color: 'var(--text-main)',
-                    border: '2px solid var(--border-glass)',
+                    border: '1px solid var(--border)',
                     cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    boxShadow: 'none'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--text-main)';
+                    e.currentTarget.style.background = 'var(--primary)';
                     e.currentTarget.style.color = 'var(--background)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.08)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'var(--card-glass)';
+                    e.currentTarget.style.background = 'var(--search-bg)';
                     e.currentTarget.style.color = 'var(--text-main)';
-                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
                   {t('catalog.load_more')}

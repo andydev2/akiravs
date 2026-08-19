@@ -74,10 +74,11 @@ export default function CartDrawer() {
       <div 
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.4)',
-          backdropFilter: 'blur(4px)',
+          backgroundColor: 'rgba(0,0,0,0.6)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
           zIndex: 99,
-          animation: 'fadeIn 0.3s ease'
+          animation: 'fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
         onClick={() => setIsCartOpen(false)}
       />
@@ -85,12 +86,15 @@ export default function CartDrawer() {
       {/* Drawer Panel */}
       <div style={{
         position: 'fixed', top: 0, right: 0, bottom: 0,
-        width: '100%', maxWidth: '400px',
-        backgroundColor: 'var(--card-bg)',
+        width: '100%', maxWidth: '440px',
+        backgroundColor: 'var(--card-glass)',
+        backdropFilter: 'blur(40px)',
+        WebkitBackdropFilter: 'blur(40px)',
         zIndex: 100,
-        boxShadow: '-5px 0 30px rgba(0,0,0,0.1)',
+        boxShadow: '-10px 0 50px rgba(0,0,0,0.1)',
         display: 'flex', flexDirection: 'column',
-        animation: 'slideInRight 0.3s ease'
+        animation: 'slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        borderLeft: '1px solid var(--border-glass)'
       }}>
         
         {/* Header */}
@@ -99,7 +103,7 @@ export default function CartDrawer() {
             <ShoppingCart /> {t('cart.title')}
           </h2>
           <button 
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}
+            style={{ background: 'var(--search-bg)', border: 'none', cursor: 'pointer', padding: '0.5rem', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             onClick={() => setIsCartOpen(false)}
             aria-label="Cerrar carrito"
           >
@@ -116,8 +120,8 @@ export default function CartDrawer() {
             </div>
           ) : (
             cart.map(item => (
-              <div key={item.id} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', backgroundColor: 'var(--search-bg)', borderRadius: '16px', border: '1px solid var(--border)' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: item.color, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '1.2rem' }}>
+              <div key={item.id} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1.2rem', backgroundColor: 'var(--card-bg)', borderRadius: '20px', border: '1px solid var(--border)', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: item.color, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '1.5rem' }}>
                   {item.icon}
                 </div>
                 <div style={{ flex: 1 }}>
@@ -127,10 +131,12 @@ export default function CartDrawer() {
                   <div style={{ color: 'var(--primary)', fontWeight: 600 }}>${item.price.toFixed(2)} <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: 400 }}>x {item.quantity}</span></div>
                 </div>
                 <button 
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ff4757', padding: '0.5rem' }}
+                  style={{ background: 'var(--search-bg)', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: '0.8rem', borderRadius: '50%', transition: 'all 0.2s' }}
                   onClick={() => removeFromCart(item.id)}
                   title="Eliminar"
                   aria-label="Eliminar del carrito"
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#fee2e2'; e.currentTarget.style.color = '#ef4444'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--search-bg)'; e.currentTarget.style.color = 'var(--text-muted)'; }}
                 >
                   <Trash2 size={20} />
                 </button>
@@ -141,8 +147,8 @@ export default function CartDrawer() {
 
         {/* Footer */}
         {cart.length > 0 && (
-          <div style={{ padding: '1.5rem', borderTop: '1px solid var(--border)', backgroundColor: 'var(--search-bg)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 800 }}>
+          <div style={{ padding: '2rem', borderTop: '1px solid var(--border-glass)', backgroundColor: 'transparent' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', fontSize: '1.4rem', fontWeight: 800 }}>
               <span style={{ color: 'var(--text-main)' }}>{t('cart.subtotal')}</span>
               <span style={{ color: 'var(--primary)' }}>${cartTotal.toFixed(2)}</span>
             </div>
@@ -151,13 +157,17 @@ export default function CartDrawer() {
               onClick={handleCheckoutClick}
               disabled={loading}
               style={{ 
-                width: '100%', padding: '1rem', 
-                backgroundColor: 'var(--primary)', color: '#1C5F5C', 
-                border: 'none', borderRadius: '12px', 
-                fontWeight: 700, fontSize: '1.1rem', cursor: loading ? 'not-allowed' : 'pointer',
-                display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem',
-                opacity: loading ? 0.7 : 1
+                width: '100%', padding: '1.2rem', 
+                backgroundColor: 'var(--primary)', color: 'var(--background)', 
+                border: 'none', borderRadius: '100px', 
+                fontWeight: 700, fontSize: '1.2rem', cursor: loading ? 'not-allowed' : 'pointer',
+                display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.8rem',
+                opacity: loading ? 0.7 : 1,
+                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
+              onMouseEnter={(e) => { if (!loading) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; e.currentTarget.style.background = 'var(--primary-hover)'; } }}
+              onMouseLeave={(e) => { if (!loading) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; e.currentTarget.style.background = 'var(--primary)'; } }}
             >
               {t('cart.checkout.finalize')}
             </button>

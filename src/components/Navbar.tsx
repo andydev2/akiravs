@@ -86,28 +86,33 @@ export default function Navbar() {
     <>
       <nav style={{
         position: 'sticky',
-        top: 0,
-        width: '100%',
-        padding: '1rem 5%',
+        top: isScrolled ? '1rem' : '0',
+        width: isScrolled ? 'calc(100% - 2rem)' : '100%',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        borderRadius: isScrolled ? '100px' : '0',
+        padding: '1rem 2rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        background: isScrolled ? 'var(--navbar-bg)' : 'var(--card-bg)',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        boxShadow: isScrolled ? '0 4px 20px rgba(0,0,0,0.05)' : 'none',
+        background: isScrolled ? 'var(--navbar-bg)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
+        boxShadow: isScrolled ? '0 10px 40px rgba(0,0,0,0.08)' : 'none',
+        border: isScrolled ? '1px solid var(--border-glass)' : '1px solid transparent',
         zIndex: 50,
-        transition: 'all 0.3s ease'
+        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
           <img 
-            src="/logo.svg" 
-            alt="Diego Ventas Logo" 
-            style={{ height: '40px', width: 'auto', borderRadius: '8px' }} 
-            width={150} height={40}
+            src="/logo.jpg" 
+            alt="akiravs Logo" 
+            style={{ height: '32px', width: 'auto', borderRadius: '8px' }} 
+            width={32} height={32}
           />
-          <span className="desktop-only-text" style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.5px' }}>
-            Diego Ventas
+          <span style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>
+            akiravs
           </span>
         </Link>
 
@@ -128,14 +133,23 @@ export default function Navbar() {
             onChange={handleSearchChange}
             style={{
               width: '100%',
-              padding: '0.75rem 1rem 0.75rem 3rem',
-              borderRadius: '24px',
+              padding: '0.8rem 1.2rem 0.8rem 3.2rem',
+              borderRadius: '100px',
               border: '1px solid var(--border)',
               backgroundColor: 'var(--search-bg)',
               color: 'var(--text-main)',
               fontSize: '0.95rem',
               outline: 'none',
-              transition: 'all 0.2s',
+              transition: 'all 0.3s ease',
+              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.02)'
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = 'var(--primary)';
+              e.target.style.boxShadow = '0 0 0 4px rgba(6, 182, 212, 0.1)';
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = 'var(--border)';
+              e.target.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.02)';
             }}
           />
         </form>
@@ -179,9 +193,9 @@ export default function Navbar() {
           ) : (
             <button 
               onClick={() => window.dispatchEvent(new CustomEvent('open-auth-modal'))}
-              style={{ background: 'var(--primary)', color: '#1C5F5C', border: 'none', padding: '0.5rem 1.2rem', borderRadius: '20px', fontWeight: 700, cursor: 'pointer', transition: 'transform 0.2s', boxShadow: '0 4px 10px rgba(62, 213, 204, 0.3)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              style={{ background: 'var(--primary)', color: 'var(--background)', border: 'none', padding: '0.6rem 1.5rem', borderRadius: '100px', fontWeight: 700, cursor: 'pointer', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; e.currentTarget.style.background = 'var(--primary-hover)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.background = 'var(--primary)'; }}
             >
               {t('nav.login')}
             </button>
@@ -262,11 +276,12 @@ export default function Navbar() {
                 {totalItems > 0 && (
                   <span style={{
                     position: 'absolute', top: '-8px', right: '-8px',
-                    background: 'var(--primary)', color: '#1C5F5C',
+                    background: 'var(--primary)', color: 'var(--background)',
                     fontSize: '0.7rem', fontWeight: 'bold',
-                    width: '18px', height: '18px',
+                    width: '20px', height: '20px',
                     borderRadius: '50%',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    border: '2px solid var(--card-bg)'
                   }}>
                     {totalItems}
                   </span>
@@ -323,9 +338,9 @@ export default function Navbar() {
           {/* Menu Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 5%', borderBottom: '1px solid var(--border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <img src="/logo.svg" alt="Logo" style={{ height: '32px', width: 'auto', borderRadius: '8px' }} width={120} height={32} />
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.5px' }}>
-                Diego Ventas
+              <img src="/logo.jpg" alt="Logo" style={{ height: '32px', width: 'auto', borderRadius: '8px' }} width={120} height={32} />
+              <span style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>
+                akiravs
               </span>
             </div>
             <button 

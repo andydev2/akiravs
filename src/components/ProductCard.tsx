@@ -76,15 +76,17 @@ export default function ProductCard({ product }: { product: Product }) {
     <>
       <div 
         style={{
-          background: `linear-gradient(135deg, var(--card-bg) 0%, ${product.color}20 100%)`,
-          borderRadius: '32px',
+          background: 'var(--card-glass)',
+          backdropFilter: 'blur(40px)',
+          WebkitBackdropFilter: 'blur(40px)',
+          borderRadius: '24px',
           padding: '2rem',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.03)',
+          boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.4)',
           display: 'flex',
           flexDirection: 'column',
           gap: '1.5rem',
-          transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease',
-          border: '1px solid var(--border)',
+          transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+          border: '1px solid var(--border-glass)',
           position: 'relative',
           overflow: 'hidden',
           opacity: hasStock ? 1 : 0.6,
@@ -92,12 +94,14 @@ export default function ProductCard({ product }: { product: Product }) {
         onMouseEnter={(e) => {
           if (!hasStock) return;
           e.currentTarget.style.transform = 'translateY(-8px)';
-          e.currentTarget.style.boxShadow = '0 20px 40px rgba(62, 213, 204, 0.15)';
+          e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.08)';
+          e.currentTarget.style.borderColor = 'rgba(0,0,0,0.1)';
         }}
         onMouseLeave={(e) => {
           if (!hasStock) return;
           e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 10px 40px rgba(0,0,0,0.06)';
+          e.currentTarget.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.4)';
+          e.currentTarget.style.borderColor = 'var(--border-glass)';
         }}
       >
 
@@ -143,22 +147,23 @@ export default function ProductCard({ product }: { product: Product }) {
           <button 
             disabled={!hasStock}
             style={{ 
-              background: 'transparent', 
-              color: hasStock ? 'var(--text-muted)' : 'var(--border)', 
-              border: `2px solid ${hasStock ? 'var(--border)' : 'var(--border)'}`, 
-              padding: '0.75rem', 
-              borderRadius: '16px', 
+              background: 'var(--search-bg)', 
+              color: hasStock ? 'var(--text-main)' : 'var(--text-muted)', 
+              border: '1px solid var(--border)', 
+              padding: '0.8rem', 
+              borderRadius: '100px', 
               fontWeight: 700, 
               cursor: hasStock ? 'pointer' : 'not-allowed',
-              fontSize: '1rem',
-              transition: 'all 0.2s'
+              fontSize: '0.95rem',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.02)'
             }}
             onClick={(e) => { 
               e.stopPropagation(); 
               if (hasStock) setIsModalOpen(true); 
             }}
-            onMouseEnter={(e) => { if (hasStock) { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; } }}
-            onMouseLeave={(e) => { if (hasStock) { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-muted)'; } }}
+            onMouseEnter={(e) => { if (hasStock) { e.currentTarget.style.background = 'var(--card-bg)'; e.currentTarget.style.borderColor = 'var(--primary)'; } }}
+            onMouseLeave={(e) => { if (hasStock) { e.currentTarget.style.background = 'var(--search-bg)'; e.currentTarget.style.borderColor = 'var(--border)'; } }}
           >
             {t('product.details')}
           </button>
@@ -166,17 +171,17 @@ export default function ProductCard({ product }: { product: Product }) {
           <button 
             disabled={!hasStock && !isRecharge}
             style={{ 
-              background: (hasStock || isRecharge) ? 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)' : 'var(--border)', 
-              color: (hasStock || isRecharge) ? '#1C5F5C' : 'var(--text-muted)', border: 'none', padding: '1rem', borderRadius: '16px', 
+              background: (hasStock || isRecharge) ? 'var(--primary)' : 'var(--border)', 
+              color: (hasStock || isRecharge) ? 'var(--background)' : 'var(--text-muted)', border: 'none', padding: '1rem', borderRadius: '100px', 
               fontWeight: 700, 
               cursor: (hasStock || isRecharge) ? 'pointer' : 'not-allowed',
-              fontSize: '1.1rem',
-              boxShadow: (hasStock || isRecharge) ? '0 4px 15px rgba(62, 213, 204, 0.3)' : 'none',
-              transition: 'transform 0.2s'
+              fontSize: '1.05rem',
+              boxShadow: (hasStock || isRecharge) ? '0 4px 15px rgba(0,0,0,0.1)' : 'none',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
             onClick={isRecharge ? handleSupportClick : handleAddToCart}
-            onMouseDown={(e) => { if (hasStock || isRecharge) e.currentTarget.style.transform = 'scale(0.98)' }}
-            onMouseUp={(e) => { if (hasStock || isRecharge) e.currentTarget.style.transform = 'scale(1)' }}
+            onMouseEnter={(e) => { if (hasStock || isRecharge) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.background = 'var(--primary-hover)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; } }}
+            onMouseLeave={(e) => { if (hasStock || isRecharge) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'var(--primary)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; } }}
           >
             {isRecharge ? (hasStock ? t('product.recharge.request') : t('product.stock.none')) : (hasStock ? t('cart.add') : t('product.stock.none'))}
           </button>
@@ -188,20 +193,21 @@ export default function ProductCard({ product }: { product: Product }) {
         <div style={{
           position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
           backgroundColor: 'rgba(0,0,0,0.7)',
-          backdropFilter: 'blur(5px)',
+          backdropFilter: 'blur(10px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           zIndex: 100, 
-          padding: '6rem 1rem 2rem 1rem' /* Mayor padding superior para no tocar la navbar */
+          padding: '2rem'
         }} onClick={() => { setIsModalOpen(false); setCurrentImage(0); }}>
           <div style={{
             background: 'var(--card-bg)',
             borderRadius: '24px',
-            width: '100%', maxWidth: '500px',
+            width: '100%', maxWidth: '600px',
             position: 'relative',
             animation: 'fadeInUp 0.3s ease',
             overflow: 'hidden',
             display: 'flex', flexDirection: 'column',
-            maxHeight: '85vh'
+            maxHeight: '90vh',
+            boxShadow: '0 25px 50px rgba(0,0,0,0.2)'
           }} onClick={e => e.stopPropagation()}>
             <button 
               onClick={() => { setIsModalOpen(false); setCurrentImage(0); }}
@@ -295,11 +301,14 @@ export default function ProductCard({ product }: { product: Product }) {
               <button 
                 disabled={!hasStock && !isRecharge}
                 style={{ 
-                  background: (hasStock || isRecharge) ? 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)' : 'var(--border)', 
-                  color: (hasStock || isRecharge) ? '#1C5F5C' : 'var(--text-muted)', border: 'none', padding: '1rem', borderRadius: '16px', 
-                  fontWeight: 700, cursor: (hasStock || isRecharge) ? 'pointer' : 'not-allowed', fontSize: '1.2rem', width: '100%',
-                  boxShadow: (hasStock || isRecharge) ? '0 4px 15px rgba(62, 213, 204, 0.3)' : 'none'
+                  background: (hasStock || isRecharge) ? 'var(--primary)' : 'var(--border)', 
+                  color: (hasStock || isRecharge) ? 'var(--background)' : 'var(--text-muted)', border: 'none', padding: '1.2rem', borderRadius: '100px', 
+                  fontWeight: 700, cursor: (hasStock || isRecharge) ? 'pointer' : 'not-allowed', fontSize: '1.1rem', width: '100%',
+                  boxShadow: (hasStock || isRecharge) ? '0 4px 15px rgba(0,0,0,0.1)' : 'none',
+                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
+                onMouseEnter={(e) => { if (hasStock || isRecharge) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.background = 'var(--primary-hover)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)'; } }}
+                onMouseLeave={(e) => { if (hasStock || isRecharge) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'var(--primary)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; } }}
                 onClick={(e) => { 
                   if (isRecharge) {
                     handleSupportClick(e);

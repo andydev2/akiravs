@@ -30,7 +30,7 @@ export default function CheckoutModal({ isOpen, onClose, cartTotal, onConfirmPay
     'Binance Pay': { 
       Plataforma: 'Binance', 
       'UID / Pay ID': '876198386', 
-      Correo: 'tu_correo_de_binance@gmail.com' 
+      Correo: 'andyz1238@gmail.com' 
     }
   };
 

@@ -25,11 +25,11 @@ export default function CheckoutModal({ isOpen, onClose, cartTotal, onConfirmPay
   const [receiptBase64, setReceiptBase64] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // IMPORTANTE: Aquí debes poner tus datos reales de Binance Pay para que los usuarios puedan transferirte.
+  // Aquí están tus datos reales de Binance Pay
   const bankDetails: Record<string, any> = {
     'Binance Pay': { 
-      Plataforma: 'Binance Pay', 
-      'Pay ID': 'TU_PAY_ID_AQUI', 
+      Plataforma: 'Binance', 
+      'UID / Pay ID': '876198386', 
       Correo: 'tu_correo_de_binance@gmail.com' 
     }
   };

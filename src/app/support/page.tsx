@@ -34,9 +34,9 @@ export default function SupportPage() {
           <div style={{ width: '60px', height: '60px', backgroundColor: '#25D366', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
             <MessageCircle size={32} />
           </div>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Soporte</h2>
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{t('nav.support')}</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-            Escríbenos por WhatsApp para respuestas rápidas.
+            {t('support.whatsapp.desc')}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <a href="https://wa.me/593998386973" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
@@ -70,9 +70,9 @@ export default function SupportPage() {
           <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
             <Mail size={32} />
           </div>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Soporte</h2>
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{t('nav.support')}</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-            Contáctanos por correo electrónico para consultas detalladas.
+            {t('support.email.desc')}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <a href="mailto:andyz1238@gmail.com" style={{ textDecoration: 'none' }}>

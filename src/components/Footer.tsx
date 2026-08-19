@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -26,7 +27,7 @@ export default function Footer() {
         {/* Brand Col */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <img src="/logo.jpg" alt="akiravs Logo" style={{ height: '40px', width: 'auto', borderRadius: '8px' }} width={40} height={40} />
+            <Image src="/logo.jpg" alt="akiravs Logo" style={{ borderRadius: '8px' }} width={48} height={48} />
             <div style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.5px' }}>
               akiravs
             </div>
@@ -55,10 +56,10 @@ export default function Footer() {
           <h4 style={{ color: 'var(--text-main)', fontWeight: 800, fontSize: '1.2rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>{t('footer.payment_methods')}</h4>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <div style={{ background: 'var(--search-bg)', padding: '0.8rem', borderRadius: '12px', display: 'flex', alignItems: 'center' }}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style={{ height: '18px' }} width={70} height={18} />
+              <Image src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style={{ objectFit: 'contain' }} width={70} height={18} />
             </div>
             <div style={{ background: 'var(--search-bg)', padding: '0.8rem 1rem', borderRadius: '12px', display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
-              <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#F3BA2F' }}>Binance Pay</span>
+              <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#D97706' }}>Binance Pay</span>
             </div>
           </div>
         </div>

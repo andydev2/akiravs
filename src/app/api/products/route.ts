@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   try {
     // Verificar que el usuario es administrador
     const session = await getServerSession(authOptions);
-    if (!session || !session.user || session.user.email !== process.env.ADMIN_EMAIL) {
+    if (!session || !session.user || (session.user as any)?.role !== 'admin') {
       return NextResponse.json({ success: false, error: 'No autorizado. Solo el administrador puede crear productos.' }, { status: 401 });
     }
 

@@ -7,7 +7,7 @@ import Review from '@/models/Review';
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || session.user?.email !== process.env.ADMIN_EMAIL) {
+    if (!session || (session.user as any)?.role !== 'admin') {
       return NextResponse.json({ success: false, message: 'Unauthorized' }, { status: 401 });
     }
 
@@ -36,7 +36,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || session.user?.email !== process.env.ADMIN_EMAIL) {
+    if (!session || (session.user as any)?.role !== 'admin') {
       return NextResponse.json({ success: false, message: 'Unauthorized' }, { status: 401 });
     }
 

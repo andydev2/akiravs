@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "../../context/LanguageContext";
+import Image from "next/image";
 
 export default function Login() {
   const router = useRouter();
@@ -193,7 +194,7 @@ export default function Login() {
             style={{ 
               marginTop: '0.5rem',
               background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)',
-              color: '#1C5F5C',
+              color: 'var(--background)',
               padding: '1rem',
               borderRadius: '12px',
               border: 'none',
@@ -257,7 +258,7 @@ export default function Login() {
             transition: 'background 0.2s'
           }}
         >
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style={{ width: '22px' }} width={22} height={22} />
+          <Image src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style={{ width: '22px', height: 'auto' }} width={22} height={22} />
           Google
         </button>
       </div>

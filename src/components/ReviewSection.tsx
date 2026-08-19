@@ -97,21 +97,26 @@ export default function ReviewSection() {
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h3 style={{ margin: 0, fontSize: '1.4rem', color: 'var(--text-main)' }}>{t('review.leave')}</h3>
-              <button type="button" onClick={() => setIsFormOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: 'var(--text-muted)' }}>✕</button>
+              <button type="button" onClick={() => setIsFormOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: 'var(--text-muted)' }} aria-label="Cerrar formulario">✕</button>
             </div>
 
             <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
               {[1, 2, 3, 4, 5].map(star => (
-                <Star 
-                  key={star} 
-                  size={28} 
-                  fill={star <= rating ? '#FFB800' : 'none'} 
-                  color={star <= rating ? '#FFB800' : '#cbd5e1'}
-                  style={{ cursor: 'pointer', transition: 'transform 0.1s' }}
+                <button
+                  key={star}
+                  type="button"
                   onClick={() => setRating(star)}
                   onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
                   onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                />
+                  style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', transition: 'transform 0.1s' }}
+                  aria-label={`Calificar con ${star} estrellas`}
+                >
+                  <Star 
+                    size={28} 
+                    fill={star <= rating ? '#FFB800' : 'none'} 
+                    color={star <= rating ? '#FFB800' : '#cbd5e1'}
+                  />
+                </button>
               ))}
             </div>
 
@@ -193,7 +198,7 @@ export default function ReviewSection() {
                       </div>
                     </div>
                     <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, fontSize: '1rem', fontStyle: 'italic' }}>
-                      "{review.comment}"
+                      &quot;{review.comment}&quot;
                     </p>
                   </div>
                 </div>

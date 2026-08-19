@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 
 export default function AuthModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,7 @@ export default function AuthModal() {
         }} aria-label="Cerrar modal">×</button>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-          <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', color: 'white', boxShadow: '0 8px 20px rgba(62, 213, 204, 0.4)' }}>
+          <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', color: 'var(--background)', boxShadow: '0 8px 20px rgba(62, 213, 204, 0.4)' }}>
             🔒
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function AuthModal() {
             e.currentTarget.style.borderColor = 'var(--border)';
           }}
         >
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style={{ width: '24px' }} width={24} height={24} />
+          <Image src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style={{ width: '24px', height: 'auto' }} width={24} height={24} />
           Continuar con Google
         </button>
       </div>

@@ -9,6 +9,7 @@ import AdminOrderList from "@/components/AdminOrderList";
 import { signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Key } from "lucide-react";
+import Image from "next/image";
 
 type DashboardClientProps = {
   user: {
@@ -46,10 +47,10 @@ export default function DashboardClient({ user, isAdmin }: DashboardClientProps)
     <div className="container" style={{ paddingTop: '2rem', paddingBottom: '4rem', paddingLeft: '5%', paddingRight: '5%', maxWidth: '100vw', overflowX: 'hidden' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '3rem', flexWrap: 'wrap', gap: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <img 
+          <Image 
             src={user.image || "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"} 
             alt="Avatar" 
-            style={{ width: 'clamp(50px, 15vw, 80px)', height: 'clamp(50px, 15vw, 80px)', borderRadius: '50%', border: '3px solid var(--primary)' }} 
+            style={{ width: 'clamp(50px, 15vw, 80px)', height: 'auto', borderRadius: '50%', border: '3px solid var(--primary)' }} 
             width={80} height={80}
           />
           <div style={{ maxWidth: '100%' }}>
@@ -80,7 +81,7 @@ export default function DashboardClient({ user, isAdmin }: DashboardClientProps)
                 {order.status === 'pending_verification' ? (
                   <span style={{ background: 'rgba(245, 158, 11, 0.2)', color: '#f59e0b', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>{t('dashboard.order.verifying')}</span>
                 ) : (
-                  <span style={{ background: 'var(--primary)', color: '#1C5F5C', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>{t('dashboard.order.active')}</span>
+                  <span style={{ background: 'var(--primary)', color: 'var(--background)', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>{t('dashboard.order.active')}</span>
                 )}
               </div>
               <div style={{ background: 'var(--search-bg)', padding: '1rem', borderRadius: '12px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -134,7 +135,7 @@ export default function DashboardClient({ user, isAdmin }: DashboardClientProps)
                       if (diffDays >= 27) {
                         return (
                           <button style={{ 
-                            background: 'var(--primary)', color: '#1C5F5C', 
+                            background: 'var(--primary)', color: 'var(--background)', 
                             border: 'none', padding: '0.4rem 1rem', borderRadius: '8px', 
                             fontWeight: 'bold', fontSize: '0.85rem', cursor: 'pointer',
                             boxShadow: '0 4px 10px rgba(62, 213, 204, 0.2)'
@@ -155,7 +156,7 @@ export default function DashboardClient({ user, isAdmin }: DashboardClientProps)
           <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '1rem' }}>
             {t('dashboard.purchases.empty')}
           </p>
-          <a href="/" className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', borderRadius: '20px', textDecoration: 'none', color: '#1C5F5C', background: 'var(--primary)', display: 'inline-block', fontWeight: 'bold' }}>
+          <a href="/" className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', borderRadius: '20px', textDecoration: 'none', color: 'var(--background)', background: 'var(--primary)', display: 'inline-block', fontWeight: 'bold' }}>
             {t('nav.catalog')}
           </a>
         </div>

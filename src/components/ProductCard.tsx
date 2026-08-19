@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 type Product = {
   id: string;
@@ -29,7 +29,6 @@ export default function ProductCard({ product }: { product: Product }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const { data: session } = useSession();
-  const router = useRouter();
 
   useEffect(() => {
     if (isModalOpen) {
@@ -220,11 +219,12 @@ export default function ProductCard({ product }: { product: Product }) {
             {/* Carousel Header */}
             {product.images && product.images.length > 0 ? (
               <div style={{ position: 'relative', width: '100%', height: '250px', backgroundColor: '#000', flexShrink: 0 }}>
-                <img 
+                <Image 
                   src={product.images[currentImage]} 
                   alt={`${product.name} screenshot ${currentImage + 1}`} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  width={800} height={450}
+                  style={{ objectFit: 'cover' }}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 {product.images.length > 1 && (
                   <>

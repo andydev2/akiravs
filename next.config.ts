@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
 
   typescript: {
     ignoreBuildErrors: true,
+  },
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'www.gravatar.com' },
+      { protocol: 'https', hostname: 'upload.wikimedia.org' },
+      { protocol: 'https', hostname: 'www.svgrepo.com' },
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+    ],
   }
 };
 

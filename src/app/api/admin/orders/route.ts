@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || session.user?.email !== process.env.ADMIN_EMAIL) {
+    if (!session || (session.user as any)?.role !== 'admin') {
       return NextResponse.json({ success: false, error: "No autorizado" }, { status: 401 });
     }
 

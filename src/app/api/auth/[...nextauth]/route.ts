@@ -5,9 +5,10 @@ import bcrypt from "bcryptjs";
 import dbConnect from "@/lib/mongodb";
 import User from "@/models/User";
 
-const ADMIN_EMAILS = [
-  process.env.ADMIN_EMAIL || '',
-].filter(Boolean);
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || process.env.ADMIN_EMAIL || '')
+  .split(',')
+  .map(e => e.trim())
+  .filter(Boolean);
 
 export const authOptions: NextAuthOptions = {
   providers: [

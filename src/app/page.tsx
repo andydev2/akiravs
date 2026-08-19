@@ -252,7 +252,7 @@ export default function Home() {
                   <Award size={32} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: '0.5rem', letterSpacing: '-0.03em' }}>{t('why.exp.title')}</h3>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: '0.5rem', letterSpacing: '-0.03em' }}>{t('why.exp.title')}</h2>
                   <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.5, fontWeight: 500 }}>{t('why.exp.desc')}</p>
                 </div>
               </div>
@@ -263,7 +263,7 @@ export default function Home() {
                   <Zap size={28} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.5rem' }}>{t('why.delivery.title')}</h3>
+                  <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.5rem' }}>{t('why.delivery.title')}</h2>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.4 }}>{t('why.delivery.desc')}</p>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function Home() {
                   <ShieldCheck size={28} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.5rem' }}>{t('why.warranty.title')}</h3>
+                  <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.5rem' }}>{t('why.warranty.title')}</h2>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.4 }}>{t('why.warranty.desc')}</p>
                 </div>
               </div>
@@ -303,7 +303,7 @@ export default function Home() {
                   <HeadphonesIcon size={40} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--background)', marginBottom: '0.8rem', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{t('why.support.title')}</h3>
+                  <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--background)', marginBottom: '0.8rem', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{t('why.support.title')}</h2>
                   <p style={{ color: 'var(--background)', opacity: 0.8, fontSize: '1.05rem', lineHeight: 1.5, fontWeight: 500 }}>{t('why.support.desc')}</p>
                 </div>
               </div>

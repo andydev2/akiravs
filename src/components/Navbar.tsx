@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Search, ShoppingCart, Menu, X, Globe, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
@@ -39,6 +40,7 @@ export default function Navbar() {
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -84,7 +86,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav style={{
+      <header style={{
         position: 'sticky',
         top: isScrolled ? '1rem' : '0',
         width: isScrolled ? 'calc(100% - 2rem)' : '100%',
@@ -105,11 +107,12 @@ export default function Navbar() {
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
-          <img 
+          <Image 
             src="/logo.jpg" 
             alt="akiravs Logo" 
-            style={{ height: '32px', width: 'auto', borderRadius: '8px' }} 
-            width={32} height={32}
+            style={{ borderRadius: '8px' }} 
+            width={40} height={40}
+            priority
           />
           <span style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>
             akiravs
@@ -124,8 +127,10 @@ export default function Navbar() {
           margin: '0 2rem',
           position: 'relative'
         }}>
-          <Search size={18} color="var(--text-muted)" style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
+          <Search size={18} color="var(--text-muted)" style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} aria-hidden="true" />
+          <label htmlFor="desktop-search" className="sr-only" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>{t('nav.search')}</label>
           <input 
+            id="desktop-search"
             type="text" 
             placeholder={t('nav.search')}
             aria-label={t('nav.search')}
@@ -168,8 +173,9 @@ export default function Navbar() {
           <button 
             onClick={toggleLanguage}
             style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-muted)', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.2s', padding: 0 }}
+            aria-label="Cambiar idioma"
           >
-            <Globe size={18} /> {language}
+            <Globe size={18} aria-hidden="true" /> {language}
           </button>
           <button 
             onClick={() => setIsCatalogModalOpen(true)}
@@ -183,7 +189,7 @@ export default function Navbar() {
           {/* Auth Button */}
           {session ? (
             <Link href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
-              <img 
+              <Image 
                 src={session.user?.image || "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"} 
                 alt="Profile" 
                 style={{ width: '32px', height: '32px', borderRadius: '50%', border: '2px solid var(--primary)' }}
@@ -228,8 +234,10 @@ export default function Navbar() {
           
           {isMobileSearchOpen ? (
             <form className="search-animate" onSubmit={handleSearch} style={{ flex: 1, display: 'flex', alignItems: 'center', position: 'relative' }}>
-              <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '1rem' }} />
+              <label htmlFor="mobile-search" className="sr-only" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>{t('nav.search')}</label>
+              <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '1rem' }} aria-hidden="true" />
               <input 
+                id="mobile-search"
                 type="text" 
                 placeholder={t('nav.search')}
                 aria-label={t('nav.search')}
@@ -299,7 +307,7 @@ export default function Navbar() {
             </>
           )}
         </div>
-      </nav>
+      </header>
 
       <style>{`
         @keyframes expandSearchSmooth {
@@ -338,7 +346,7 @@ export default function Navbar() {
           {/* Menu Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 5%', borderBottom: '1px solid var(--border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <img src="/logo.jpg" alt="Logo" style={{ height: '32px', width: 'auto', borderRadius: '8px' }} width={120} height={32} />
+              <Image src="/logo.jpg" alt="Logo" style={{ borderRadius: '8px' }} width={40} height={40} />
               <span style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>
                 akiravs
               </span>
@@ -361,7 +369,7 @@ export default function Navbar() {
               
               {session ? (
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--text-main)', textDecoration: 'none' }}>
-                  <img 
+                  <Image 
                     src={session.user?.image || "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"} 
                     alt="Profile" 
                     style={{ width: '40px', height: '40px', borderRadius: '50%', border: '2px solid var(--primary)' }}

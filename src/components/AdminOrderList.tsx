@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import Image from 'next/image';
 
 export default function AdminOrderList() {
   const { t } = useLanguage();
@@ -115,7 +116,7 @@ export default function AdminOrderList() {
               <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
                 <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 'bold' }}>{t('admin.orders.receipt')}</div>
                 {order.receiptBase64 ? (
-                  <img 
+                  <Image 
                     src={order.receiptBase64} 
                     alt="Comprobante" 
                     style={{ maxWidth: '100%', maxHeight: '200px', borderRadius: '8px', border: '2px solid var(--border)', objectFit: 'contain', background: '#000' }} 

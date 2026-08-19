@@ -32,7 +32,7 @@ export default function SupportPage() {
         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
         >
           <div style={{ width: '60px', height: '60px', backgroundColor: '#25D366', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
-            <MessageCircle size={32} />
+            <MessageCircle size={32} aria-hidden="true" />
           </div>
           <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{t('nav.support')}</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
@@ -41,7 +41,7 @@ export default function SupportPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <a href="https://wa.me/593998386973" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <button style={{ 
-                backgroundColor: '#25D366', color: 'white', border: 'none', padding: '0.8rem 1.5rem', 
+                backgroundColor: '#1B9A4A', color: 'white', border: 'none', padding: '0.8rem 1.5rem', 
                 borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
               }}>
                 +593 99 838 6973
@@ -49,7 +49,7 @@ export default function SupportPage() {
             </a>
             <a href="https://wa.me/573183453036" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <button style={{ 
-                backgroundColor: '#25D366', color: 'white', border: 'none', padding: '0.8rem 1.5rem', 
+                backgroundColor: '#1B9A4A', color: 'white', border: 'none', padding: '0.8rem 1.5rem', 
                 borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
               }}>
                 +57 318 345 3036
@@ -68,7 +68,7 @@ export default function SupportPage() {
         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
         >
           <div style={{ width: '60px', height: '60px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', color: 'white' }}>
-            <Mail size={32} />
+            <Mail size={32} aria-hidden="true" />
           </div>
           <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{t('nav.support')}</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
@@ -77,7 +77,7 @@ export default function SupportPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <a href="mailto:andyz1238@gmail.com" style={{ textDecoration: 'none' }}>
               <button style={{ 
-                backgroundColor: 'var(--primary)', color: '#1C5F5C', border: 'none', padding: '0.8rem 1.5rem', 
+                backgroundColor: 'var(--primary)', color: 'var(--background)', border: 'none', padding: '0.8rem 1.5rem', 
                 borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
               }}>
                 andyz1238@gmail.com
@@ -85,7 +85,7 @@ export default function SupportPage() {
             </a>
             <a href="mailto:y@uam.lol" style={{ textDecoration: 'none' }}>
               <button style={{ 
-                backgroundColor: 'var(--primary)', color: '#1C5F5C', border: 'none', padding: '0.8rem 1.5rem', 
+                backgroundColor: 'var(--primary)', color: 'var(--background)', border: 'none', padding: '0.8rem 1.5rem', 
                 borderRadius: '12px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%'
               }}>
                 y@uam.lol
@@ -99,7 +99,7 @@ export default function SupportPage() {
       {/* Preguntas Frecuentes (FAQ) */}
       <div style={{ width: '100%', maxWidth: '800px' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <HelpCircle color="var(--primary)" /> {t('support.faq.title')}
+          <HelpCircle color="var(--primary)" aria-hidden="true" /> {t('support.faq.title')}
         </h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

@@ -8,7 +8,7 @@ import { allProducts } from '@/data/products';
 export async function GET() {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || session.user?.email !== process.env.ADMIN_EMAIL) {
+    if (!session || (session.user as any)?.role !== 'admin') {
       return NextResponse.json({ success: false, error: "No autorizado" }, { status: 401 });
     }
 
